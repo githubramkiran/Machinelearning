@@ -1,2 +1,5 @@
-From tensorflow/serving
+#From tensorflow/serving
 #run -p 8500:8500 --mount type=bind,source=/tmp/mnist,target=/models/mnist -e MODEL_NAME=mnist -t tensorflow/serving &
+from onnx/onnx-base
+build . -t onnx/onnx-base
+run -it onnx/onnx-base
