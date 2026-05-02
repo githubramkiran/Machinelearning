@@ -1,1 +1,4 @@
-tensorflow-model-server
+#tensorflow-model-server
+fastapi
+uvicorn
+uv
