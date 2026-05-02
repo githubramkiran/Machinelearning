@@ -4,3 +4,23 @@ from tensorflow/serving
 #git clone https://github.com/tensorflow/serving
 # Location of demo models
 ENV TESTDATA="$(pwd)/serving/tensorflow_serving/servables/tensorflow/testdata"
+# Use the official TensorFlow Serving image as the base
+FROM tensorflow/serving:latest
+
+# Set the name of your model
+ENV MODEL_NAME=half_plus_two
+
+# Set the base path where models are stored in the container
+ENV MODEL_BASE_PATH=$(pwd)/serving/tensorflow_serving/servables/tensorflow/testdata
+
+# Copy your exported model (SavedModel format) into the container
+# Ensure your model is in a versioned folder, e.g., my_model/1/
+COPY ./"$TESTDATA/saved_model_half_plus_two_cpu:/models/half_plus_two" /models/${MODEL_NAME}
+
+# Expose the gRPC (8500) and REST (8501) ports
+EXPOSE 8500
+EXPOSE 8501
+
+# The base image already has an ENTRYPOINT that runs the model server. 
+# It will use the MODEL_NAME and MODEL_BASE_PATH environment variables.
+
