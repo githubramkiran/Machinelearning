@@ -1,7 +1,7 @@
 # Download the TensorFlow Serving Docker image and repo
 #docker pull tensorflow/serving
 from tensorflow/serving
-git clone https://github.com/tensorflow/serving
+#git clone https://github.com/tensorflow/serving
 # Location of demo models
 TESTDATA="$(pwd)/serving/tensorflow_serving/servables/tensorflow/testdata"
 
