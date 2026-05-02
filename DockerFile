@@ -1,4 +1,4 @@
-docker pull tensorflow/serving
+pull tensorflow/serving
 git clone https://github.com/tensorflow/serving
 # Location of demo models
 TESTDATA="$(pwd)/serving/tensorflow_serving/servables/tensorflow/testdata"
