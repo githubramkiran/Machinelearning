@@ -6,10 +6,10 @@ from tensorflow/serving
 ENV TESTDATA="$(pwd)/serving/tensorflow_serving/servables/tensorflow/testdata"
 
 # Start TensorFlow Serving container and open the REST API port
-#run -t --rm -p 8501:8501 -v "$TESTDATA/saved_model_half_plus_two_cpu:/models/half_plus_two" -e MODEL_NAME=half_plus_two -t tensorflow/serving &
-run -p 8501:8501 \
---mount type=bind,source="$TESTDATA/saved_model_half_plus_two_cpu:/models/half_plus_two",target=half_plus_two \
--e MODEL_NAME=half_plus_two -t tensorflow/serving
+run -t --rm -p 8501:8501 \
+-v "$TESTDATA/saved_model_half_plus_two_cpu:/models/half_plus_two" \
+-e MODEL_NAME=half_plus_two \
+tensorflow/serving &
 
 # Query the model using the predict API
 RUN curl -d '{"instances": [1.0, 2.0, 5.0]}' \
