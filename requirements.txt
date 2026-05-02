@@ -1,1 +1,1 @@
-apt-get update && apt-get install tensorflow-model-server
+apt-get install tensorflow-model-server
