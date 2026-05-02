@@ -11,7 +11,7 @@ FROM tensorflow/serving:latest
 ENV MODEL_NAME=half_plus_two
 
 # Set the base path where models are stored in the container
-ENV MODEL_BASE_PATH=$(pwd)/serving/tensorflow_serving/servables/tensorflow/testdata
+ENV MODEL_BASE_PATH="$(pwd)/serving/tensorflow_serving/servables/tensorflow/testdata"
 
 # Copy your exported model (SavedModel format) into the container
 # Ensure your model is in a versioned folder, e.g., my_model/1/
