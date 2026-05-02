@@ -10,7 +10,7 @@ ENV MODEL_BASE_PATH="$(pwd)/serving/tensorflow_serving/servables/tensorflow/test
 # Copy your exported model (SavedModel format) into the container
 # Ensure your model is in a versioned folder, e.g., my_model/1/
 
-COPY ./half_plus_two /models/my_model
+COPY /${MODEL_BASE_PATH}/${MODEL_NAME} /models/${MODEL_NAME}
 # Expose the gRPC (8500) and REST (8501) ports
 EXPOSE 8500
 EXPOSE 8501
