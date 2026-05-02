@@ -3,7 +3,7 @@
 from tensorflow/serving
 #git clone https://github.com/tensorflow/serving
 # Location of demo models
-TESTDATA="$(pwd)/serving/tensorflow_serving/servables/tensorflow/testdata"
+ENV TESTDATA="$(pwd)/serving/tensorflow_serving/servables/tensorflow/testdata"
 
 # Start TensorFlow Serving container and open the REST API port
 run -t --rm -p 8501:8501 \
